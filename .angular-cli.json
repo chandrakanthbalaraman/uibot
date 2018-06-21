@@ -19,14 +19,20 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "./assets/scss/_module/kui.scss",
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      }
+      },
+      "stylePreprocessorOptions": {
+         "includePaths": [
+            "../src/assets/scss"
+          ]
+       }
     }
   ],
   "e2e": {

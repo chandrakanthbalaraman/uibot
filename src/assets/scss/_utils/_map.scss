@@ -1,0 +1,32 @@
+/* ========================================================================== */
+/* Header Maps */
+/* ========================================================================== */
+$menu-colors: (
+  default: (#efefef,#000),  
+  accent: (#4a6bd4, #fff),
+  success: (#52bf4a, #fff),
+  warning: (#c23435, #fff)
+);
+ 
+$sidebar-colors: (
+  primary: (#172135, #EAEBED,#667185,#2A374F)
+
+);
+
+
+/* ========================================================================== */
+/* Theme ColorMaps */
+/* ========================================================================== */
+$theme-colors: () !default;
+
+$theme-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+),$theme-colors);
+

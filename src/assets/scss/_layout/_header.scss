@@ -1,0 +1,28 @@
+
+/* ========================================================================== */
+/* Header Layout */
+/* ========================================================================== */
+
+.web-header {
+    font-size: rem($base-size);
+    padding: em(5px,$base-size) em(20px,$base-size);
+    position: relative;
+    top:0;
+    left: 0;
+    right: 0;
+    height: em($topbar-height,$base-size); 
+    box-shadow: 0 0 em(5px,$base-size) #000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    @each $name, $colors in $menu-colors {
+      $bgcolor: nth($colors, 1);
+      $fontcolor: nth($colors, 2);
+      &--#{$name} {
+        background-color: $bgcolor;
+        color: $fontcolor;
+      }  
+    }
+
+  }

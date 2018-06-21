@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@charset 'UTF-8';
+
+//1. Utilities Properties
+@import
+    './assets/scss/_utils/index';
+
+
+//2. Base Properties    
+@import
+    './assets/scss/_base/index';
+
+//3. Layout Properties    
+
+@import
+    './assets/scss/_layout/index';
