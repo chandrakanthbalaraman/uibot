@@ -3,13 +3,17 @@ import {Routes, RouterModule} from '@angular/router';
 const routes: Routes = [
     {
       'path': '',
-      'redirectTo': 'home',
+      'redirectTo': 'app/blank',
       'pathMatch': 'full',
     },
     {
-        'path': 'home',
-        'loadChildren': './layout/main-layout/blank/blank.module#BlankModule'
+        'path': 'app',
+        'loadChildren': './layout/main-layout/main-layout.module#MainLayoutModule'
     },
+    {
+        'path': '**',
+        'redirectTo': 'app/blank'
+    }
 ]
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
