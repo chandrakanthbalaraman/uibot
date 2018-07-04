@@ -12,12 +12,16 @@ const routes: Routes = [
             {
                 'path': 'blank',
                 'loadChildren': './blank/blank.module#BlankModule'
+            },
+            {
+                'path': 'dashboard',
+                'loadChildren': './dashboard/dashboard.module#DashboardModule'
             }
         ]
     },
     {
         'path': '**',
-        'redirectTo': 'blank'
+        'redirectTo': 'dashboard'
     }
 
 ]

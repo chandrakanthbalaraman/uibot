@@ -1,0 +1,23 @@
+<div class="web-container__section">
+      <div class="container ">
+            <div class="card mb-3 w-75 mx-auto my-5">
+                  <div class="card-header bg-transparent">
+                        <h4>Creat APP</h4>
+                  </div>
+                  <div class="card-body">
+                        <form [formGroup]="appGenerationForm" novalidate>
+                              <div class="form-group">
+                                    <input class="form-control" type="text"  autocomplete="off" trim="blur" formControlName="appName">
+                                    <app-control-error *ngIf="appGenerationFormErrors.appName.required">
+                                          {{'REQ_APP'| error}}
+                                    </app-control-error>
+                                    
+                              </div>
+                        </form>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                        <button type="button" class="btn btn-primary" [disabled]="!appGenerationForm.valid" (click)="appGenerationFn(appGenerationForm)">Submit</button>
+                  </div>
+            </div>
+      </div>
+</div>

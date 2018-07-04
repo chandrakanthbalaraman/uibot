@@ -3,7 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 const routes: Routes = [
     {
       'path': '',
-      'redirectTo': 'app/blank',
+      'redirectTo': 'app/dashboard',
       'pathMatch': 'full',
     },
     {
@@ -12,7 +12,7 @@ const routes: Routes = [
     },
     {
         'path': '**',
-        'redirectTo': 'app/blank'
+        'redirectTo': 'app/dashboard'
     }
 ]
 @NgModule({
