@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AppFormService } from '@app/common/_services/validateform.service';
+import { GenerateService } from '@app/common/_services/_http-services/generate.service';
 
 @Component({
     selector: 'k-dashboard',
@@ -16,7 +17,8 @@ export class KDashboardComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private formErrorService: AppFormService,
+        private appFormService: AppFormService,
+        private generateService: GenerateService
     ) { }
     buildAppGenerationForm(){
          //Forgot Password form builder group initialization
@@ -33,7 +35,7 @@ export class KDashboardComponent implements OnInit {
 
         //form value changes event
         this.appGenerationForm.valueChanges.subscribe(field => {
-            this.appGenerationFormErrors = this.formErrorService.validateForm(
+            this.appGenerationFormErrors = this.appFormService.validateForm(
                 this.appGenerationForm,
                 this.appGenerationFormErrors,
                 true
@@ -43,6 +45,50 @@ export class KDashboardComponent implements OnInit {
 
         this.appGenerationFormConfig = {};
         this.appGenerationFormConfig.spinner = false;
+    }
+    appGenerationFn(form){
+        if (form.valid) {
+            this.generateApp();
+        } else {
+            this.appGenerationFormErrors = this.appFormService.validateForm(
+                form,
+                this.appGenerationFormErrors,
+                false
+            );
+        }
+    }
+    generateApp(){
+        let reqObj = this.appGenerationForm.value;
+        reqObj.prefix="gen";
+        reqObj.version="5.2.0";
+        this.generateService.postGenerate(reqObj).subscribe(
+            data => {
+               this.generateLayouyts();
+            },
+            error => {
+                
+                
+            },
+            ()=>{
+                
+            }
+        );
+    }
+    generateLayouyts(){
+        let reqObj = {
+            project: this.appGenerationForm.value.appName;
+        }
+        this.generateService.postGenerateLayout(reqObj).subscribe(
+            data => {
+               console.log("layout created");
+            },
+            error => {
+                
+                
+            },()=>{
+                
+            }
+        );
     }
     ngOnInit(): void { 
         this.buildAppGenerationForm();

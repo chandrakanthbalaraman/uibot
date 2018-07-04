@@ -1,13 +1,15 @@
 import { NgModule, SkipSelf, Optional  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppFormService } from '@app/common/_services/validateform.service';
+import { GenerateService } from '@app/common/_services/_http-services/generate.service';
 
 @NgModule({
     declarations: [],
     imports: [ CommonModule ],
     exports: [],
     providers: [
-        AppFormService
+        AppFormService,
+        GenerateService
 	]
 })
 export class CoreModule {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule}  from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { InputTrimModule } from 'ng2-trim-directive';
 
@@ -22,7 +23,8 @@ import { AnimateIfOnDomDirective } from '@app/common/_directive/animateif.direct
         RouterModule,
 		ReactiveFormsModule,
         FormsModule,
-        InputTrimModule
+        InputTrimModule,
+        HttpClientModule
     ],
     exports: [
         SidebarComponent,
@@ -31,7 +33,8 @@ import { AnimateIfOnDomDirective } from '@app/common/_directive/animateif.direct
         InputTrimModule,
         AppControlErrorComponent,
         ErrorMessagePipe,
-        AnimateIfOnDomDirective
+        AnimateIfOnDomDirective,
+        HttpClientModule
     ],
     providers: [],
 })
